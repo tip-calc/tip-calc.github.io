@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#D3D3D3">
+    <title>Tip Calculator</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-wrapper black">
+            <div class="container">
+                <a href="index.html" class="brand-logo">Tips Calculator</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+
+        <h3>
+            Welcome to your tips calculator!
+        </h3>
+
+        <!-- Calc -->
+            <div id="calc">
+                <form action="" id="calc_form">
+                    <div class="input-field">
+                        <input type="number" name="total_tips" id="total_tips_val" placeholder="Enter Total Tips">
+                    </div>
+                    <div class="input-field">
+                        <input type="number" name="total_hours" id="total_hours_val" placeholder="Total Timesheet Hours">
+                    </div>
+                    <div class="input-field">
+                        <input type="number" name="employee_hours" id="employee_hours_val" placeholder="Enter Employee Hours">
+                    </div>
+                    <div class="input-field center">
+                        <button class="btn" type="submit">Submit</button>
+                    </div>
+                </form>
+
+                <h2 class="flow-text center-align">
+                    Tips Earned
+                </h2>
+                <h3 class="flow_text center-align" id="tips_earned">$0.00</h3>
+
+                </div>
+    </div>
+    <footer class="footer-copyright black center white-text">
+        <container class="container">
+            <p class="flow-text">
+                JS &copy; 2022
+            </p>
+        
+    </footer>
+    <script>
+        let totalTips = document.getElementById('total_tips_val');
+let totalHours = document.getElementById('total_hours_val');
+let employeeHours = document.getElementById('employee_hours_val');
+
+let tipsEarned = document.getElementById('tips_earned')
+
+document.querySelector('form#calc_form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (totalTips != null && totalHours != null && employeeHours != null){
+        let tipsPerHour = totalTips.value / totalHours.value;
+        let empTips = tipsPerHour * employeeHours.value;
+        tipsEarned.innerHTML = '$' + empTips;
+    }
+});
+    </script>
+</body>
+</html>
